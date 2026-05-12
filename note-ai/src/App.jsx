@@ -11,14 +11,14 @@ function App() {
 
   // Fetch initial notes
   useEffect(() => {
-    fetch("http://localhost:5000/notes")
+    fetch("https://backend-2-yncz.onrender.com/notes")
       .then(res => res.json())
       .then(data => setNotes(data))
       .catch(err => console.error("Failed to fetch notes", err));
   }, []);
 
   const handleAddNote = (newNote) => {
-    fetch("http://localhost:5000/notes", {
+    fetch("https://backend-2-yncz.onrender.com/notes", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newNote),
@@ -36,7 +36,7 @@ function App() {
   };
 
   const handleUpdateNote = (updatedNote) => {
-    fetch(`http://localhost:5000/notes/${updatedNote.id}`, {
+    fetch(`https://backend-2-yncz.onrender.com/notes/${updatedNote.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedNote),
@@ -51,7 +51,7 @@ function App() {
   };
 
   const handleDeleteNote = (noteToDelete) => {
-    fetch(`http://localhost:5000/notes/${noteToDelete.id}`, {
+    fetch(`https://backend-2-yncz.onrender.com/notes/${noteToDelete.id}`, {
       method: "DELETE",
     })
       .then(() => {
